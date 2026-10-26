@@ -49,7 +49,7 @@ export default async function handler(req, res) {
             messages: [
               {
                 role: "system",
-                content: `You are Pulkit Bansal's portfolio assistant.
+                content: `You are Shivendra Sharma's portfolio assistant.
   
   Portfolio information:
   ${portfolioContext}
