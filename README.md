@@ -1,93 +1,47 @@
-# portfolio
-# Personal Portfolio — Shivendra Sharma
+# Shivendra Sharma — Personal Profile
 
-A personal portfolio website showcasing my background as a Computer Science Engineering student at JECRC University, Jaipur, Rajasthan, India. It highlights my technical skills, programming projects, and interest in software development.
-
-**Live Website:** [View My Portfolio](https://portfolio-25bcon1037.vercel.app/)
+A responsive personal portfolio website for introducing Shivendra Sharma, showcasing skills and projects, and providing interactive weather and AI chat features.
 
 ## Features
 
-- **Personal Introduction:** Learn about my background, interests, and career goals.
-- **Technical Skills:** Highlights my skills in Python, C/C++, HTML, CSS, and Node.js.
-- **Project Showcase:** Displays programming assignments and web applications with links to their GitHub repositories.
-- **Project Search:** Search and filter projects by title, description, or technology.
-- **Weather Search:** Retrieve current weather information for a city using the OpenWeatherMap API.
-- **AI Chat Assistant:** Includes a chat interface for questions about the portfolio and its projects, intended for local classroom demonstrations.
-- **Dark Mode:** Switch between light and dark themes.
-- **Responsive Design:** Adapts the layout to different screen sizes.
-- **Contact Section:** Provides links to connect with me.
+- **About and skills:** A short profile and a list of technical skills.
+- **Project gallery:** Five projects with repository links and technology tags.
+- **Project search:** Filter projects by title, description, or technology.
+- **Weather lookup:** Retrieve a city's current temperature and conditions using the OpenWeatherMap API.
+- **AI portfolio assistant:** Ask questions about the profile, skills, and projects. Simple greetings receive an immediate response; other questions use the chat API.
+- **Light and dark themes:** Switch themes with the floating button.
+- **Responsive layout:** Adapts to smaller screens.
 
-## Technologies Used
+## Project files
 
-- **HTML5** — Website structure and content
-- **CSS3** — Styling, responsive layouts, and dark mode
-- **JavaScript** — Interactive features, project filtering, and weather functionality
-- **OpenWeatherMap API** — Weather data
-- **Google Fonts** — Syne and Figtree typography
-- **Vercel** — Website deployment
+| File | Purpose |
+| --- | --- |
+| `index.html` | Portfolio page structure and content |
+| `style.css` | Main layout, colors, responsive styles, and theme toggle |
+| `script.js` | Theme toggle, project search, and weather lookup |
+| `chatbot.css` | AI chat widget styles |
+| `chatbot.js` | Browser-side chat behavior and requests to `/api/chat` |
+| `chat.js` | Serverless chat handler that calls the Groq API |
 
-## Project Structure
+The profile image path in the page is a placeholder (`images/PLACEHOLDER-profile.jpg`). Add a profile photo at that path or update the image path in `index.html`.
 
-```text
-portfolio/
-├── index.html       # Main portfolio page
-├── style.css        # Main styles and responsive design
-├── chatbot.css      # AI chat interface styling
-├── script.js        # Theme toggle, weather, and project search
-├── chatbot.js       # AI chat functionality, if included
-├── images/          # Profile image and other assets
-└── README.md        # Project documentation
-```
+## Run locally
 
-## Getting Started
+For the portfolio, project search, theme toggle, and weather feature, open `index.html` in a browser. An internet connection is needed for Google Fonts and weather requests.
 
-### Prerequisites
+For the AI assistant, serve the project with a platform that supports the `/api/chat` serverless route. The provided `chat.js` is written in the Vercel-style request/response format and should be deployed as `api/chat.js` so it is available at `/api/chat`. A static file preview alone will not provide this endpoint.
 
-- A modern web browser
-- A code editor, such as Visual Studio Code
-- An internet connection for external fonts and weather data
+Configure the server environment variable `GROQ_API_KEY` with a valid Groq API key before using the AI chat. Keep this key on the server; do not put it in browser JavaScript or commit it to the repository. The chat handler uses the `openai/gpt-oss-20b` model through Groq's OpenAI-compatible API.
 
-### Run Locally
+## API configuration
 
-1. Clone the repository:
+- **Weather:** `script.js` calls OpenWeatherMap's current weather endpoint and expects an API key. Replace the existing key in the script with your own valid key before publishing. Since browser-side keys are visible to visitors, restrict the key through your provider's settings where possible or move weather requests behind a server endpoint.
+- **AI chat:** Set `GROQ_API_KEY` in the deployment environment. The browser sends the question, portfolio text, and up to one recent exchange to `/api/chat`.
 
-   ```bash
-   git clone https://github.com/pulkit25bcon/portfolio.git
-   ```
+## Customization
 
-2. Open the project folder:
+Edit the text, skills, project details, and contact links in `index.html`. Adjust colors, spacing, and responsive behavior in `style.css` and `chatbot.css`. Update the interaction logic in `script.js` or `chatbot.js` as needed.
 
-   ```bash
-   cd portfolio
-   ```
+## Technologies
 
-3. Open `index.html` in your browser, or use the Live Server extension in Visual Studio Code.
-
-**Note:** Replace the repository URL above with your actual GitHub repository URL if its name differs from `portfolio`.
-
-## Featured Projects
-
-| Project | Description | Technologies |
-|---|---|---|
-| [C++ to Python Program Conversion](https://github.com/pulkit25bcon/python-basics-25bcon1037-factorial) | Programming exercises covering factorials, Fibonacci series, and structure-to-dictionary conversion. | C++, Python |
-| [Python Debugging and Testing](https://github.com/pulkit25bcon/Buggy_Python_Code_25BCON1037) | Debugging Python code and verifying corrected behavior with tests. | Python |
-| [Python Code Refactoring](https://github.com/pulkit25bcon/messy_25BCON1037) | Refactoring code to improve readability while preserving intended behavior. | Python, Cursor AI |
-| [Quiz App](https://github.com/pulkit25bcon/Quiz_25BCON1037) | Interactive quiz application. | HTML, CSS, JavaScript |
-| [Reading Book App](https://github.com/pulkit25bcon/ReadingBook) | Web application for recording books read and tracking reading progress. | HTML, CSS, JavaScript |
-
-## Goals
-
-- Strengthen my programming and Data Structures and Algorithms (DSA) skills.
-- Explore Artificial Intelligence and cybersecurity.
-- Build practical, user-friendly software applications.
-- Gain experience through internships and collaborative projects.
-
-## Contact
-
-- **GitHub:** [@pulkit25bcon](https://github.com/pulkit25bcon)
-- **Email:** [pb9266583@gmail.com](mailto:pb9266583@gmail.com)
-- **Portfolio:** [portfolio-25bcon1037.vercel.app](https://portfolio-25bcon1037.vercel.app/)
-
----
-
-Thank you for visiting my portfolio! Feel free to explore my projects and follow my journey in software development.
+HTML · CSS · JavaScript · OpenWeatherMap API · Groq API
